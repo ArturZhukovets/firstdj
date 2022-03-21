@@ -11,6 +11,9 @@ class Articles(models.Model):   #Наследуем все от класса Mod
     def __str__(self):     # Этим методом мы указываем какая именно информация будет выводится
         return f'Новость: {self.title}'  # А выводится title нашей таблицы
 
+    def get_absolute_url(self):
+        return f'/news/{self.id}'
+
     # Для того чтобы переименовать таблицу в панели админа !!! Обязательное название класса - Meta:
     class Meta:
         verbose_name = 'Новость'
